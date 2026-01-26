@@ -27,6 +27,15 @@
 
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#0a2240">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVEVEE432V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BVEVEE432V');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -167,6 +176,30 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            cursor: pointer;
+        }
+
+        .mute-btn {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            background: rgba(0,0,0,0.6);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            z-index: 15;
+            transition: background 0.2s;
+        }
+
+        .mute-btn:hover {
+            background: rgba(0,0,0,0.8);
         }
 
         .current-town {
@@ -373,6 +406,7 @@
                     <p>Loading closings...</p>
                 </div>
             </div>
+            <button class="mute-btn" id="mute-btn" title="Toggle mute">&#128266;</button>
             <div class="current-town">
                 <div class="town-name" id="town-name">--</div>
                 <div class="town-status" id="town-status">--</div>
@@ -417,7 +451,9 @@
             townStatusEl: null,
             countEl: null,
             overlayEl: null,
+            muteBtnEl: null,
             started: false,
+            isMuted: false,
 
             init() {
                 this.container = document.getElementById('video-container');
@@ -425,11 +461,31 @@
                 this.townStatusEl = document.getElementById('town-status');
                 this.countEl = document.getElementById('closure-count');
                 this.overlayEl = document.getElementById('start-overlay');
+                this.muteBtnEl = document.getElementById('mute-btn');
 
                 this.overlayEl.addEventListener('click', () => this.start());
+                this.muteBtnEl.addEventListener('click', () => this.toggleMute());
+                this.container.addEventListener('click', (e) => this.togglePause(e));
 
                 this.fetchClosures();
                 setInterval(() => this.fetchClosures(), this.pollInterval);
+            },
+
+            toggleMute() {
+                this.isMuted = !this.isMuted;
+                if (this.currentVideo) {
+                    this.currentVideo.muted = this.isMuted;
+                }
+                this.muteBtnEl.innerHTML = this.isMuted ? '&#128264;' : '&#128266;';
+            },
+
+            togglePause(e) {
+                if (!this.currentVideo || !this.started) return;
+                if (this.currentVideo.paused) {
+                    this.currentVideo.play();
+                } else {
+                    this.currentVideo.pause();
+                }
             },
 
             start() {
@@ -507,7 +563,7 @@
             createVideo(slug, autoplay = false) {
                 const video = document.createElement('video');
                 video.src = `/videos/${slug}.mp4`;
-                video.muted = false;
+                video.muted = this.isMuted;
                 video.playsInline = true;
 
                 if (autoplay) {
