@@ -3,7 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mass Snow Closings</title>
+    <title>Mass Snow Closings - Live Massachusetts School & Business Closures</title>
+    <meta name="description" content="Live snow day closings for Massachusetts schools and businesses. Real-time updates from WCVB during winter weather events.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mass Snow Closings">
+    <meta property="og:description" content="Live snow day closings for Massachusetts schools and businesses. Wicked pissah updates during winter storms.">
+    <meta property="og:image" content="{{ url('/og-image.svg') }}">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mass Snow Closings">
+    <meta name="twitter:description" content="Live snow day closings for Massachusetts schools and businesses. Wicked pissah updates during winter storms.">
+    <meta name="twitter:image" content="{{ url('/og-image.svg') }}">
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#0a2240">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">

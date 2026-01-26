@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a2240"/>
+      <stop offset="100%" style="stop-color:#1a3a5c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="200" font-family="sans-serif" font-size="140" font-weight="bold" text-anchor="middle" fill="white">❄</text>
+  <text x="600" y="340" font-family="sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="white">MASS</text>
+  <text x="600" y="420" font-family="sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#c8102e">SNOW</text>
+  <text x="600" y="500" font-family="sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="white">CLOSINGS</text>
+  <text x="600" y="580" font-family="sans-serif" font-size="28" text-anchor="middle" fill="rgba(255,255,255,0.6)">Live Massachusetts School &amp; Business Closures</text>
+</svg>
