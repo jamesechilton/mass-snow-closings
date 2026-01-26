@@ -12,9 +12,13 @@ class ClosureController extends Controller
     public function index()
     {
         $data = Cache::remember('active_closures', 30, function () {
-            $closures = Closure::with('town')
+            $allClosures = Closure::with('town')
                 ->active()
-                ->get()
+                ->get();
+
+            $totalCount = $allClosures->count();
+
+            $closuresWithVideos = $allClosures
                 ->filter(function ($closure) {
                     $slug = $closure->town->slug ?? null;
                     if (! $slug) {
@@ -37,8 +41,8 @@ class ClosureController extends Controller
                 ->values();
 
             return [
-                'closures' => $closures,
-                'count' => $closures->count(),
+                'closures' => $closuresWithVideos,
+                'count' => $totalCount,
             ];
         });
 
