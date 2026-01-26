@@ -14,13 +14,13 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Mass Snow Closings">
     <meta property="og:description" content="Live snow day closings for Massachusetts schools and businesses. Wicked pissah updates during winter storms.">
-    <meta property="og:image" content="{{ url('/og-image.svg') }}">
+    <meta property="og:image" content="{{ url('/og-image.png') }}">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mass Snow Closings">
     <meta name="twitter:description" content="Live snow day closings for Massachusetts schools and businesses. Wicked pissah updates during winter storms.">
-    <meta name="twitter:image" content="{{ url('/og-image.svg') }}">
+    <meta name="twitter:image" content="{{ url('/og-image.png') }}">
 
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#0a2240">
