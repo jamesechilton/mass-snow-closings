@@ -379,6 +379,7 @@
 
     <footer>
         Data sourced from <a href="https://www.wcvb.com/weather/closings" target="_blank">WCVB</a> &bull; Massachusetts
+        <br><span style="opacity: 0.6;">For entertainment and informational purposes only. Always verify closings with official sources.</span>
     </footer>
 
     <script>
