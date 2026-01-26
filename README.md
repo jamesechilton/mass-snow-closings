@@ -20,7 +20,7 @@ This site takes that comedy gold and turns it into a functional (and hilarious) 
 ## Tech Stack
 
 - **Laravel 12** - PHP 8.2+ framework
-- **SQLite** - Simple database for towns and closures
+- **MySQL** - Database for towns and closures
 - **Vanilla JS** - No framework needed, kehd
 - **WCVB** - Data source for closings
 
