@@ -269,6 +269,53 @@
                 font-size: 1.2rem;
             }
         }
+
+        .start-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 20;
+            border-radius: 12px;
+        }
+
+        .start-overlay:hover {
+            background: rgba(0,0,0,0.7);
+        }
+
+        .start-button {
+            width: 100px;
+            height: 100px;
+            background: var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 8px 30px rgba(200,16,46,0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .start-overlay:hover .start-button {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(200,16,46,0.6);
+        }
+
+        .start-text {
+            margin-top: 1.5rem;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.8);
+        }
     </style>
 </head>
 <body>
@@ -293,6 +340,10 @@
 
     <main>
         <div class="video-wrapper">
+            <div class="start-overlay" id="start-overlay">
+                <div class="start-button">&#9658;</div>
+                <div class="start-text">Wicked Pissah, Let's Go!</div>
+            </div>
             <div class="video-container" id="video-container">
                 <div class="loading" id="loading">
                     <div class="spinner"></div>
@@ -341,14 +392,30 @@
             townNameEl: null,
             townStatusEl: null,
             countEl: null,
+            overlayEl: null,
+            started: false,
 
             init() {
                 this.container = document.getElementById('video-container');
                 this.townNameEl = document.getElementById('town-name');
                 this.townStatusEl = document.getElementById('town-status');
                 this.countEl = document.getElementById('closure-count');
+                this.overlayEl = document.getElementById('start-overlay');
+
+                this.overlayEl.addEventListener('click', () => this.start());
+
                 this.fetchClosures();
                 setInterval(() => this.fetchClosures(), this.pollInterval);
+            },
+
+            start() {
+                if (this.started) return;
+                this.started = true;
+                this.overlayEl.style.display = 'none';
+
+                if (this.closures.length > 0) {
+                    this.startPlayback();
+                }
             },
 
             async fetchClosures() {
@@ -364,7 +431,7 @@
 
                         if (this.closures.length === 0) {
                             this.showEmptyState();
-                        } else if (!this.currentVideo) {
+                        } else if (this.started && !this.currentVideo) {
                             this.startPlayback();
                         }
                     }
@@ -416,7 +483,7 @@
             createVideo(slug, autoplay = false) {
                 const video = document.createElement('video');
                 video.src = `/videos/${slug}.mp4`;
-                video.muted = true;
+                video.muted = false;
                 video.playsInline = true;
 
                 if (autoplay) {
