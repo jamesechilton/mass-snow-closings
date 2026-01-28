@@ -574,6 +574,715 @@
             50% { opacity: 1; transform: translateY(0); }
         }
 
+        /* Sad Snow Plow */
+        .plow-container {
+            position: relative;
+            width: 160px;
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        .plow-body {
+            position: absolute;
+            bottom: 10px;
+            left: 30px;
+            width: 90px;
+            height: 45px;
+            background: #d97706;
+            border-radius: 6px 12px 4px 4px;
+        }
+        .plow-cab {
+            position: absolute;
+            bottom: 35px;
+            left: 75px;
+            width: 40px;
+            height: 35px;
+            background: #b45309;
+            border-radius: 4px 8px 0 0;
+        }
+        .plow-window {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 28px;
+            height: 18px;
+            background: rgba(135,206,235,0.4);
+            border-radius: 2px 4px 0 0;
+        }
+        .plow-blade {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            width: 8px;
+            height: 50px;
+            background: #94a3b8;
+            border-radius: 2px;
+            transform: rotate(15deg);
+            transform-origin: bottom center;
+        }
+        .plow-blade-edge {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 25px;
+            height: 6px;
+            background: #64748b;
+            border-radius: 2px;
+            transform: translateX(-8px);
+        }
+        .plow-wheel {
+            position: absolute;
+            bottom: 0;
+            width: 20px;
+            height: 20px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            border: 3px solid #333;
+        }
+        .plow-wheel.front { left: 35px; }
+        .plow-wheel.rear { right: 15px; }
+        .plow-exhaust {
+            position: absolute;
+            top: -5px;
+            left: 85px;
+            width: 8px;
+            height: 12px;
+            background: #555;
+            border-radius: 2px 2px 0 0;
+        }
+        .plow-puff {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: rgba(150,150,150,0.5);
+            border-radius: 50%;
+            top: -15px;
+            left: 83px;
+            animation: puff-rise 2s ease-out infinite;
+        }
+        .plow-puff:nth-child(2) { animation-delay: 0.7s; left: 88px; }
+        .plow-puff:nth-child(3) { animation-delay: 1.4s; left: 80px; }
+        @keyframes puff-rise {
+            0% { opacity: 0.6; transform: translateY(0) scale(0.5); }
+            100% { opacity: 0; transform: translateY(-30px) scale(1.5); }
+        }
+        .plow-container { animation: plow-idle 2s ease-in-out infinite; }
+        @keyframes plow-idle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(2px); }
+        }
+
+        /* Space Saver */
+        .spacesaver-container {
+            position: relative;
+            width: 140px;
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+        .parking-lines {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 8px;
+            border-left: 4px solid #facc15;
+            border-right: 4px solid #facc15;
+        }
+        .folding-chair {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: chair-wobble 3s ease-in-out infinite;
+        }
+        .chair-seat {
+            width: 35px;
+            height: 4px;
+            background: #ef4444;
+            border-radius: 1px;
+        }
+        .chair-back {
+            width: 4px;
+            height: 30px;
+            background: #b91c1c;
+            position: absolute;
+            top: -28px;
+            left: 2px;
+        }
+        .chair-back-rest {
+            width: 30px;
+            height: 4px;
+            background: #ef4444;
+            position: absolute;
+            top: -28px;
+            left: 2px;
+        }
+        .chair-leg-front {
+            position: absolute;
+            width: 3px;
+            height: 20px;
+            background: #b91c1c;
+            bottom: -18px;
+        }
+        .chair-leg-front.l { left: 3px; transform: rotate(8deg); }
+        .chair-leg-front.r { right: 3px; transform: rotate(-8deg); }
+        @keyframes chair-wobble {
+            0%, 100% { transform: translateX(-50%) rotate(0deg); }
+            25% { transform: translateX(-50%) rotate(1deg); }
+            75% { transform: translateX(-50%) rotate(-1deg); }
+        }
+        .dry-road {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            background: #374151;
+            border-radius: 2px;
+        }
+
+        /* Iced Coffee */
+        .coffee-container {
+            position: relative;
+            width: 80px;
+            height: 140px;
+            margin-bottom: 1rem;
+        }
+        .coffee-cup {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 90px;
+            background: linear-gradient(180deg, transparent 0%, transparent 10%, #7c3aed 10%, #7c3aed 15%, #fff 15%, #fff 85%, #7c3aed 85%, #7c3aed 90%, transparent 90%);
+            border-radius: 4px 4px 8px 8px;
+            overflow: hidden;
+        }
+        .coffee-cup::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(180deg, rgba(139,90,43,0.6) 0%, rgba(101,67,33,0.9) 100%);
+        }
+        .coffee-lid {
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55px;
+            height: 12px;
+            background: #7c3aed;
+            border-radius: 4px 4px 2px 2px;
+        }
+        .coffee-straw {
+            position: absolute;
+            bottom: 95px;
+            left: 50%;
+            transform: translateX(-50%) rotate(8deg);
+            width: 4px;
+            height: 40px;
+            background: #22c55e;
+            border-radius: 2px;
+        }
+        .coffee-sweat {
+            position: absolute;
+            width: 4px;
+            height: 6px;
+            background: rgba(125,211,252,0.7);
+            border-radius: 50%;
+            animation: sweat-drip 2s ease-in infinite;
+        }
+        .coffee-sweat:nth-child(1) { right: 12px; bottom: 60px; animation-delay: 0s; }
+        .coffee-sweat:nth-child(2) { left: 14px; bottom: 40px; animation-delay: 0.8s; }
+        .coffee-sweat:nth-child(3) { right: 14px; bottom: 25px; animation-delay: 1.5s; }
+        @keyframes sweat-drip {
+            0% { opacity: 0.8; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(20px); }
+        }
+
+        /* Kid in Snow Gear */
+        .snowgear-container {
+            position: relative;
+            width: 100px;
+            height: 140px;
+            margin-bottom: 1rem;
+        }
+        .gear-kid-head {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: #fbbf24;
+            border-radius: 50%;
+        }
+        .gear-kid-hat {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 44px;
+            height: 22px;
+            background: #dc2626;
+            border-radius: 22px 22px 0 0;
+        }
+        .gear-kid-pompom {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .gear-kid-coat {
+            position: absolute;
+            top: 38px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55px;
+            height: 55px;
+            background: #2563eb;
+            border-radius: 10px 10px 5px 5px;
+        }
+        .gear-kid-scarf {
+            position: absolute;
+            top: 34px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 10px;
+            background: #16a34a;
+            border-radius: 3px;
+        }
+        .gear-kid-boots {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 20px;
+        }
+        .gear-boot {
+            position: absolute;
+            bottom: 0;
+            width: 18px;
+            height: 16px;
+            background: #1a1a2e;
+            border-radius: 4px;
+        }
+        .gear-boot.l { left: 4px; }
+        .gear-boot.r { right: 4px; }
+        .sweat-drop {
+            position: absolute;
+            width: 5px;
+            height: 8px;
+            background: #7dd3fc;
+            border-radius: 50%;
+            animation: sweat-pop 2.5s ease-in-out infinite;
+        }
+        .sweat-drop:nth-child(1) { top: 5px; right: 18px; animation-delay: 0s; }
+        .sweat-drop:nth-child(2) { top: 0px; left: 22px; animation-delay: 1s; }
+        @keyframes sweat-pop {
+            0%, 100% { opacity: 0; transform: translateY(0); }
+            20% { opacity: 1; transform: translateY(-3px); }
+            80% { opacity: 1; transform: translateY(-3px); }
+            100% { opacity: 0; transform: translateY(-8px); }
+        }
+        .gear-sun-mini {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 28px;
+            height: 28px;
+            background: radial-gradient(circle, #FFD700, #FFA500);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255,215,0,0.5);
+            animation: sun-pulse 3s ease-in-out infinite;
+        }
+
+        /* Lonely Shovel */
+        .shovel-container {
+            position: relative;
+            width: 80px;
+            height: 150px;
+            margin-bottom: 1rem;
+        }
+        .shovel-handle {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-10deg);
+            width: 6px;
+            height: 100px;
+            background: linear-gradient(180deg, #92400e, #78350f);
+            border-radius: 3px;
+            transform-origin: bottom center;
+        }
+        .shovel-grip {
+            position: absolute;
+            top: -5px;
+            left: -7px;
+            width: 20px;
+            height: 8px;
+            background: #1a1a2e;
+            border-radius: 3px;
+        }
+        .shovel-scoop {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-38%) rotate(-10deg);
+            width: 35px;
+            height: 25px;
+            background: #94a3b8;
+            border-radius: 0 0 6px 6px;
+            transform-origin: top center;
+        }
+        .cobweb {
+            position: absolute;
+            top: 25px;
+            right: 8px;
+            width: 30px;
+            height: 30px;
+            border-right: 1px solid rgba(255,255,255,0.15);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            border-radius: 0 0 50% 0;
+        }
+        .cobweb::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0 0 50% 0;
+        }
+        .dust-mote {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            animation: dust-float 4s ease-in-out infinite;
+        }
+        .dust-mote:nth-child(1) { top: 40px; left: 15px; animation-delay: 0s; }
+        .dust-mote:nth-child(2) { top: 60px; right: 10px; animation-delay: 1.5s; }
+        .dust-mote:nth-child(3) { top: 80px; left: 25px; animation-delay: 3s; }
+        @keyframes dust-float {
+            0%, 100% { opacity: 0.2; transform: translateY(0) translateX(0); }
+            50% { opacity: 0.5; transform: translateY(-8px) translateX(5px); }
+        }
+
+        /* Bread & Milk */
+        .breadmilk-container {
+            position: relative;
+            width: 140px;
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+        .shelf {
+            position: absolute;
+            width: 120px;
+            height: 6px;
+            background: #78350f;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .shelf.top { top: 30px; }
+        .shelf.bottom { top: 75px; }
+        .shelf-back {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 130px;
+            height: 110px;
+            border: 3px solid #78350f;
+            border-radius: 4px;
+            background: rgba(30,20,10,0.3);
+        }
+        .empty-tag {
+            position: absolute;
+            background: #fbbf24;
+            color: #1a1a2e;
+            font-size: 0.4rem;
+            font-weight: bold;
+            padding: 1px 4px;
+            border-radius: 2px;
+            animation: tag-swing 3s ease-in-out infinite;
+        }
+        .empty-tag.t1 { top: 18px; left: 25px; }
+        .empty-tag.t2 { top: 62px; right: 20px; animation-delay: 1s; }
+        @keyframes tag-swing {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .tumbleweed {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(180,140,80,0.5);
+            border-radius: 50%;
+            bottom: 15px;
+            animation: tumble 4s linear infinite;
+        }
+        @keyframes tumble {
+            0% { left: -20px; transform: rotate(0deg); }
+            100% { left: 140px; transform: rotate(720deg); }
+        }
+        .lonely-crumb {
+            position: absolute;
+            width: 4px;
+            height: 3px;
+            background: #d4a574;
+            border-radius: 50%;
+        }
+        .lonely-crumb:nth-child(1) { top: 34px; left: 40px; }
+        .lonely-crumb:nth-child(2) { top: 36px; left: 60px; }
+        .lonely-crumb:nth-child(3) { top: 79px; left: 50px; }
+
+        /* Sad Sled */
+        .sled-container {
+            position: relative;
+            width: 140px;
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+        .grass-hill {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(160deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 60% 80% 0 0;
+        }
+        .grass-blade {
+            position: absolute;
+            width: 3px;
+            height: 10px;
+            background: #15803d;
+            border-radius: 2px 2px 0 0;
+            bottom: 0;
+            transform-origin: bottom center;
+            animation: grass-sway 2s ease-in-out infinite;
+        }
+        .grass-blade:nth-child(1) { left: 20px; height: 12px; animation-delay: 0s; }
+        .grass-blade:nth-child(2) { left: 40px; height: 9px; animation-delay: 0.3s; }
+        .grass-blade:nth-child(3) { left: 55px; height: 11px; animation-delay: 0.6s; }
+        .grass-blade:nth-child(4) { left: 75px; height: 8px; animation-delay: 0.9s; }
+        .grass-blade:nth-child(5) { left: 95px; height: 10px; animation-delay: 1.2s; }
+        .grass-blade:nth-child(6) { left: 110px; height: 13px; animation-delay: 0.4s; }
+        @keyframes grass-sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        .sled {
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-15deg);
+        }
+        .sled-deck {
+            width: 55px;
+            height: 6px;
+            background: #dc2626;
+            border-radius: 12px 3px 3px 3px;
+        }
+        .sled-runner {
+            position: absolute;
+            bottom: -5px;
+            width: 50px;
+            height: 3px;
+            background: #94a3b8;
+            border-radius: 8px 0 0 0;
+            left: 2px;
+        }
+        .sled-runner-strut {
+            position: absolute;
+            width: 3px;
+            height: 5px;
+            background: #94a3b8;
+            bottom: -5px;
+        }
+        .sled-runner-strut:nth-child(1) { left: 8px; }
+        .sled-runner-strut:nth-child(2) { left: 28px; }
+
+        /* Weather App Refresh */
+        .phone-container {
+            position: relative;
+            width: 70px;
+            height: 130px;
+            margin-bottom: 1rem;
+        }
+        .phone-body {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70px;
+            height: 130px;
+            background: #1a1a2e;
+            border-radius: 12px;
+            border: 3px solid #333;
+        }
+        .phone-screen {
+            position: absolute;
+            top: 12px;
+            left: 5px;
+            width: 56px;
+            height: 100px;
+            background: linear-gradient(180deg, #87CEEB, #f0f9ff);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .phone-sun-icon {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 22px;
+            height: 22px;
+            background: radial-gradient(circle, #FFD700, #FFA500);
+            border-radius: 50%;
+        }
+        .phone-temp {
+            position: absolute;
+            top: 45px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: #1a1a2e;
+            font-family: 'Oswald', sans-serif;
+        }
+        .phone-no-snow {
+            position: absolute;
+            top: 62px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.35rem;
+            color: #666;
+        }
+        .phone-tap {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            animation: phone-tap-anim 1.5s ease-in-out infinite;
+        }
+        @keyframes phone-tap-anim {
+            0%, 100% { transform: translateX(-50%) scale(0.8); opacity: 0.3; }
+            50% { transform: translateX(-50%) scale(1.2); opacity: 0.7; }
+        }
+        .phone-container {
+            animation: phone-shake 1.5s ease-in-out infinite;
+        }
+        @keyframes phone-shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+        }
+
+        /* Screen Door Guy */
+        .screendoor-container {
+            position: relative;
+            width: 120px;
+            height: 150px;
+            margin-bottom: 1rem;
+        }
+        .door-frame {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 140px;
+            border: 8px solid #78350f;
+            border-radius: 4px 4px 0 0;
+            background: linear-gradient(180deg, #87CEEB 0%, #90EE90 80%, #22c55e 100%);
+        }
+        .screen-mesh {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(0,0,0,0.05) 3px,
+                rgba(0,0,0,0.05) 4px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 3px,
+                rgba(0,0,0,0.05) 3px,
+                rgba(0,0,0,0.05) 4px
+            );
+        }
+        .door-guy-silhouette {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .door-guy-head {
+            width: 28px;
+            height: 28px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        .door-guy-body {
+            width: 40px;
+            height: 45px;
+            background: #374151;
+            border-radius: 6px 6px 0 0;
+            margin: -3px auto 0;
+        }
+        .door-guy-arm {
+            position: absolute;
+            width: 8px;
+            height: 30px;
+            background: #374151;
+            border-radius: 4px;
+            top: 30px;
+        }
+        .door-guy-arm.l { left: -2px; transform: rotate(15deg); }
+        .door-guy-arm.r { right: -2px; transform: rotate(-85deg); transform-origin: top center; }
+        .door-guy-hand {
+            position: absolute;
+            bottom: -2px;
+            width: 8px;
+            height: 8px;
+            background: #fbbf24;
+            border-radius: 50%;
+        }
+        .door-question {
+            position: absolute;
+            top: 10px;
+            right: -10px;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.6);
+            animation: question-bob 3s ease-in-out infinite;
+        }
+        @keyframes question-bob {
+            0%, 100% { opacity: 0.4; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(-5px); }
+        }
+
         .loading {
             text-align: center;
             padding: 3rem;
@@ -923,6 +1632,148 @@
                         </div>
                         <h2>Still No Snow Day...</h2>
                         <p>Maybe tomorrow will be wicked cold</p>
+                    </div>`,
+                    // Sad Snow Plow
+                    `<div class="empty-state">
+                        <div class="plow-container">
+                            <div class="plow-puff"></div>
+                            <div class="plow-puff"></div>
+                            <div class="plow-puff"></div>
+                            <div class="plow-exhaust"></div>
+                            <div class="plow-cab">
+                                <div class="plow-window"></div>
+                            </div>
+                            <div class="plow-body"></div>
+                            <div class="plow-blade">
+                                <div class="plow-blade-edge"></div>
+                            </div>
+                            <div class="plow-wheel front"></div>
+                            <div class="plow-wheel rear"></div>
+                        </div>
+                        <h2>Plows Got Nothin' To Do</h2>
+                        <p>Even the plow guys are bored</p>
+                    </div>`,
+                    // Space Saver
+                    `<div class="empty-state">
+                        <div class="spacesaver-container">
+                            <div class="dry-road">
+                                <div class="parking-lines"></div>
+                                <div class="folding-chair">
+                                    <div class="chair-back-rest"></div>
+                                    <div class="chair-back"></div>
+                                    <div class="chair-seat">
+                                        <div class="chair-leg-front l"></div>
+                                        <div class="chair-leg-front r"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>Saved a Spot for Nothin'</h2>
+                        <p>At least nobody took your space</p>
+                    </div>`,
+                    // Iced Coffee
+                    `<div class="empty-state">
+                        <div class="coffee-container">
+                            <div class="coffee-sweat"></div>
+                            <div class="coffee-sweat"></div>
+                            <div class="coffee-sweat"></div>
+                            <div class="coffee-straw"></div>
+                            <div class="coffee-lid"></div>
+                            <div class="coffee-cup"></div>
+                        </div>
+                        <h2>Iced Coffee Weather, Not Snow Day Weather</h2>
+                        <p>Still orderin' it medium regulah</p>
+                    </div>`,
+                    // Kid in Snow Gear
+                    `<div class="empty-state">
+                        <div class="snowgear-container">
+                            <div class="gear-sun-mini"></div>
+                            <div class="sweat-drop"></div>
+                            <div class="sweat-drop"></div>
+                            <div class="gear-kid-pompom"></div>
+                            <div class="gear-kid-hat"></div>
+                            <div class="gear-kid-head"></div>
+                            <div class="gear-kid-scarf"></div>
+                            <div class="gear-kid-coat"></div>
+                            <div class="gear-kid-boots">
+                                <div class="gear-boot l"></div>
+                                <div class="gear-boot r"></div>
+                            </div>
+                        </div>
+                        <h2>All Dressed Up, Nowhere to Sled</h2>
+                        <p>Mom said it might snow</p>
+                    </div>`,
+                    // Lonely Shovel
+                    `<div class="empty-state">
+                        <div class="shovel-container">
+                            <div class="shovel-handle">
+                                <div class="shovel-grip"></div>
+                            </div>
+                            <div class="shovel-scoop"></div>
+                            <div class="cobweb"></div>
+                            <div class="dust-mote"></div>
+                            <div class="dust-mote"></div>
+                            <div class="dust-mote"></div>
+                        </div>
+                        <h2>This Shovel's Collectin' Dust</h2>
+                        <p>Haven't touched it in weeks, kehd</p>
+                    </div>`,
+                    // Bread & Milk Panic
+                    `<div class="empty-state">
+                        <div class="breadmilk-container">
+                            <div class="shelf-back">
+                                <div class="shelf top"></div>
+                                <div class="shelf bottom"></div>
+                                <div class="empty-tag t1">SOLD OUT</div>
+                                <div class="empty-tag t2">EMPTY</div>
+                                <div class="lonely-crumb"></div>
+                                <div class="lonely-crumb"></div>
+                                <div class="lonely-crumb"></div>
+                            </div>
+                            <div class="tumbleweed"></div>
+                        </div>
+                        <h2>Bought All That Bread for Nothin'</h2>
+                        <p>The French toast alert was a false alarm</p>
+                    </div>`,
+                    // Sad Sled on Grass
+                    `<div class="empty-state">
+                        <div class="sled-container">
+                            <div class="grass-hill">
+                                <div class="grass-blade"></div>
+                                <div class="grass-blade"></div>
+                                <div class="grass-blade"></div>
+                                <div class="grass-blade"></div>
+                                <div class="grass-blade"></div>
+                                <div class="grass-blade"></div>
+                            </div>
+                            <div class="sled">
+                                <div class="sled-deck">
+                                    <div class="sled-runner-strut"></div>
+                                    <div class="sled-runner-strut"></div>
+                                </div>
+                                <div class="sled-runner"></div>
+                            </div>
+                        </div>
+                        <h2>Not Exactly Sled Weather</h2>
+                        <p>This hill's wicked dry</p>
+                    </div>`,
+                    // Screen Door Guy
+                    `<div class="empty-state">
+                        <div class="screendoor-container">
+                            <div class="door-frame">
+                                <div class="screen-mesh"></div>
+                            </div>
+                            <div class="door-guy-silhouette">
+                                <div class="door-guy-head"></div>
+                                <div class="door-guy-body">
+                                    <div class="door-guy-arm l"><div class="door-guy-hand"></div></div>
+                                    <div class="door-guy-arm r"><div class="door-guy-hand"></div></div>
+                                </div>
+                            </div>
+                            <div class="door-question">?</div>
+                        </div>
+                        <h2>Where's the Nor'eastah?</h2>
+                        <p>Weather guy said 6 to 12 inches...</p>
                     </div>`
                 ];
 
