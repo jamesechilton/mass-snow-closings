@@ -228,21 +228,350 @@
             text-transform: uppercase;
         }
 
+        .empty-state-wrapper {
+            width: 100%;
+            max-width: 1500px;
+            background: linear-gradient(45deg, #111 0%, #222 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border: 3px solid rgba(255,255,255,0.1);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .empty-state {
             text-align: center;
-            padding: 3rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
         }
 
         .empty-state h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
             color: var(--snow);
         }
 
         .empty-state p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: rgba(255,255,255,0.7);
+        }
+
+        /* Melting Snowman */
+        .snowman-container {
+            position: relative;
+            width: 120px;
+            height: 180px;
+            margin-bottom: 1rem;
+        }
+
+        .snowman-body {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, #fff, #e0e8f0);
+            border-radius: 50%;
+            box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1);
+        }
+
+        .snowman-head {
+            width: 50px;
+            height: 50px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: melt-head 3s ease-in-out infinite;
+        }
+
+        .snowman-middle {
+            width: 70px;
+            height: 65px;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: melt-middle 3s ease-in-out infinite;
+        }
+
+        .snowman-bottom {
+            width: 90px;
+            height: 75px;
+            top: 95px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: melt-bottom 3s ease-in-out infinite;
+        }
+
+        @keyframes melt-head {
+            0%, 100% { transform: translateX(-50%) scaleY(1); }
+            50% { transform: translateX(-50%) scaleY(0.92); }
+        }
+
+        @keyframes melt-middle {
+            0%, 100% { transform: translateX(-50%) scaleY(1) scaleX(1); }
+            50% { transform: translateX(-50%) scaleY(0.9) scaleX(1.05); }
+        }
+
+        @keyframes melt-bottom {
+            0%, 100% { transform: translateX(-50%) scaleY(1) scaleX(1); }
+            50% { transform: translateX(-50%) scaleY(0.85) scaleX(1.1); }
+        }
+
+        .snowman-face {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 25px;
+        }
+
+        .snowman-eye {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #333;
+            border-radius: 50%;
+            top: 5px;
+        }
+
+        .snowman-eye.left { left: 4px; }
+        .snowman-eye.right { right: 4px; }
+
+        .snowman-frown {
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 7px;
+            border: 2px solid #333;
+            border-top: none;
+            border-radius: 0 0 14px 14px;
+        }
+
+        .snowman-tear {
+            position: absolute;
+            width: 4px;
+            height: 8px;
+            background: #7dd3fc;
+            border-radius: 50% 50% 50% 50%;
+            top: 18px;
+            left: 12px;
+            animation: tear-fall 2s ease-in infinite;
+            opacity: 0;
+        }
+
+        @keyframes tear-fall {
+            0% { opacity: 0; transform: translateY(0); }
+            20% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(30px); }
+        }
+
+        .puddle {
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 15px;
+            background: radial-gradient(ellipse, rgba(125,211,252,0.5) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: puddle-grow 3s ease-in-out infinite;
+        }
+
+        @keyframes puddle-grow {
+            0%, 100% { transform: translateX(-50%) scaleX(1); }
+            50% { transform: translateX(-50%) scaleX(1.2); }
+        }
+
+        .drip {
+            position: absolute;
+            width: 4px;
+            height: 12px;
+            background: linear-gradient(to bottom, rgba(125,211,252,0.8), rgba(125,211,252,0.3));
+            border-radius: 0 0 4px 4px;
+            animation: drip-fall 2.5s ease-in infinite;
+        }
+
+        .drip:nth-child(1) { left: 20px; bottom: 80px; animation-delay: 0s; }
+        .drip:nth-child(2) { left: 55px; bottom: 95px; animation-delay: 0.8s; }
+        .drip:nth-child(3) { right: 20px; bottom: 85px; animation-delay: 1.6s; }
+
+        @keyframes drip-fall {
+            0% { opacity: 0; height: 0; }
+            10% { opacity: 1; height: 12px; }
+            100% { opacity: 0; transform: translateY(90px); }
+        }
+
+        /* Bored Kid at Window */
+        .window-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin-bottom: 1rem;
+        }
+
+        .window-frame {
+            position: absolute;
+            width: 140px;
+            height: 130px;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 50%, #90EE90 90%);
+            border: 8px solid #8B4513;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.3);
+        }
+
+        .window-cross-v {
+            position: absolute;
+            width: 6px;
+            height: 100%;
+            background: #8B4513;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .window-cross-h {
+            position: absolute;
+            width: 100%;
+            height: 6px;
+            background: #8B4513;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .sun {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle, #FFD700, #FFA500);
+            border-radius: 50%;
+            top: 10px;
+            right: 15px;
+            box-shadow: 0 0 20px rgba(255,215,0,0.6);
+            animation: sun-pulse 3s ease-in-out infinite;
+        }
+
+        .sun::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, rgba(255,215,0,0.3), transparent 70%);
+            border-radius: 50%;
+        }
+
+        @keyframes sun-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .kid-silhouette {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .kid-head {
+            width: 40px;
+            height: 40px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .kid-hair {
+            position: absolute;
+            top: -5px;
+            left: 5px;
+            width: 30px;
+            height: 15px;
+            background: #1a1a2e;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .kid-body {
+            width: 50px;
+            height: 30px;
+            background: var(--red);
+            border-radius: 8px 8px 0 0;
+            margin: -5px auto 0;
+        }
+
+        .kid-arms {
+            position: relative;
+            width: 70px;
+            margin: -25px auto 0;
+        }
+
+        .kid-arm {
+            position: absolute;
+            width: 12px;
+            height: 25px;
+            background: var(--red);
+            border-radius: 6px;
+            top: 0;
+        }
+
+        .kid-arm.left {
+            left: 0;
+            transform: rotate(25deg);
+        }
+
+        .kid-arm.right {
+            right: 0;
+            transform: rotate(-25deg);
+        }
+
+        .kid-hand {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            bottom: -2px;
+            left: 1px;
+        }
+
+        .chin-rest {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: head-bob 4s ease-in-out infinite;
+        }
+
+        @keyframes head-bob {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(3px); }
+        }
+
+        .sigh-bubble {
+            position: absolute;
+            top: -10px;
+            right: -30px;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+            font-style: italic;
+            animation: sigh 4s ease-in-out infinite;
+        }
+
+        @keyframes sigh {
+            0%, 100% { opacity: 0; transform: translateY(5px); }
+            50% { opacity: 1; transform: translateY(0); }
         }
 
         .loading {
@@ -395,7 +724,7 @@
     </header>
 
     <main>
-        <div class="video-wrapper">
+        <div class="video-wrapper" id="video-wrapper">
             <div class="start-overlay" id="start-overlay">
                 <div class="start-button">&#9658;</div>
                 <div class="start-text">Wicked Pissah, Let's Go!</div>
@@ -412,6 +741,7 @@
                 <div class="town-status" id="town-status">--</div>
             </div>
         </div>
+        <div class="empty-state-wrapper" id="empty-state-wrapper" style="display: none;"></div>
     </main>
 
     <footer>
@@ -444,7 +774,7 @@
             container: null,
             currentVideo: null,
             nextVideo: null,
-            closures: [],
+            closures: null,
             currentIndex: 0,
             pollInterval: 30000,
             townNameEl: null,
@@ -452,6 +782,8 @@
             countEl: null,
             overlayEl: null,
             muteBtnEl: null,
+            videoWrapperEl: null,
+            emptyStateWrapperEl: null,
             started: false,
             isMuted: false,
 
@@ -462,6 +794,8 @@
                 this.countEl = document.getElementById('closure-count');
                 this.overlayEl = document.getElementById('start-overlay');
                 this.muteBtnEl = document.getElementById('mute-btn');
+                this.videoWrapperEl = document.getElementById('video-wrapper');
+                this.emptyStateWrapperEl = document.getElementById('empty-state-wrapper');
 
                 this.overlayEl.addEventListener('click', () => this.start());
                 this.muteBtnEl.addEventListener('click', () => this.toggleMute());
@@ -506,13 +840,20 @@
                     this.countEl.textContent = data.count;
 
                     if (JSON.stringify(data.closures) !== JSON.stringify(this.closures)) {
+                        const wasEmpty = !this.closures || this.closures.length === 0;
                         this.closures = data.closures;
                         this.currentIndex = 0;
 
                         if (this.closures.length === 0) {
                             this.showEmptyState();
-                        } else if (this.started && !this.currentVideo) {
-                            this.startPlayback();
+                        } else {
+                            // Show video player if we were in empty state
+                            if (wasEmpty || this.emptyStateWrapperEl.style.display !== 'none') {
+                                this.showVideoPlayer();
+                            }
+                            if (this.started && !this.currentVideo) {
+                                this.startPlayback();
+                            }
                         }
                     }
                 } catch (error) {
@@ -533,14 +874,65 @@
 
             showEmptyState() {
                 this.cleanup();
-                this.townNameEl.textContent = '--';
-                this.townStatusEl.textContent = '--';
-                this.container.innerHTML = `
-                    <div class="empty-state">
-                        <h2>No Closings Currently Reported</h2>
-                        <p>Check back during winter weather events</p>
-                    </div>
-                `;
+                this.videoWrapperEl.style.display = 'none';
+                this.emptyStateWrapperEl.style.display = 'flex';
+
+                const placeholders = [
+                    // Sad melting snowman
+                    `<div class="empty-state">
+                        <div class="snowman-container">
+                            <div class="snowman-body snowman-head">
+                                <div class="snowman-face">
+                                    <div class="snowman-eye left"></div>
+                                    <div class="snowman-eye right"></div>
+                                    <div class="snowman-frown"></div>
+                                    <div class="snowman-tear"></div>
+                                </div>
+                            </div>
+                            <div class="snowman-body snowman-middle"></div>
+                            <div class="snowman-body snowman-bottom"></div>
+                            <div class="drip"></div>
+                            <div class="drip"></div>
+                            <div class="drip"></div>
+                            <div class="puddle"></div>
+                        </div>
+                        <h2>No Snow? Wicked Bummah!</h2>
+                        <p>Check back when it actually snows</p>
+                    </div>`,
+                    // Bored kid at window
+                    `<div class="empty-state">
+                        <div class="window-container">
+                            <div class="window-frame">
+                                <div class="sun"></div>
+                                <div class="window-cross-v"></div>
+                                <div class="window-cross-h"></div>
+                            </div>
+                            <div class="chin-rest">
+                                <div class="kid-silhouette">
+                                    <div class="kid-head">
+                                        <div class="kid-hair"></div>
+                                    </div>
+                                    <div class="kid-arms">
+                                        <div class="kid-arm left"><div class="kid-hand"></div></div>
+                                        <div class="kid-arm right"><div class="kid-hand"></div></div>
+                                    </div>
+                                    <div class="kid-body"></div>
+                                    <div class="sigh-bubble">*sigh*</div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>Still No Snow Day...</h2>
+                        <p>Maybe tomorrow will be wicked cold</p>
+                    </div>`
+                ];
+
+                this.emptyStateWrapperEl.innerHTML = placeholders[Math.floor(Math.random() * placeholders.length)];
+            },
+
+            showVideoPlayer() {
+                this.emptyStateWrapperEl.style.display = 'none';
+                this.emptyStateWrapperEl.innerHTML = '';
+                this.videoWrapperEl.style.display = '';
             },
 
             cleanup() {
