@@ -11,7 +11,7 @@ class ClosureController extends Controller
 {
     public function index()
     {
-        $data = Cache::remember('active_closures', 30, function () {
+        $data = Cache::remember('active_closures', 60, function () {
             $allClosures = Closure::with('town')
                 ->active()
                 ->get();
