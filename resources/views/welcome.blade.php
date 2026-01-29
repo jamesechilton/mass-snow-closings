@@ -1362,6 +1362,18 @@
             .town-name {
                 font-size: 1.2rem;
             }
+
+            .empty-state-wrapper {
+                aspect-ratio: 9/16;
+            }
+
+            .empty-state h2 {
+                font-size: 1.4rem;
+            }
+
+            .empty-state p {
+                font-size: 0.85rem;
+            }
         }
 
         .start-overlay {
